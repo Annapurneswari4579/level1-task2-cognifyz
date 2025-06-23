@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Alert Message</title>
+  <title>Greeting Alert</title>
   <style>
     body {
       text-align: center;
@@ -13,16 +12,28 @@
     button {
       padding: 10px 20px;
       font-size: 16px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h2>Click the Button to See a Message</h2>
-  <button onclick="showAlert()">Click Me</button>
+  <h2>Click the Button to See a Greeting</h2>
+  <button onclick="showGreeting()">Click Me</button>
 
   <script>
-    function showAlert() {
-      alert("Hello! You clicked the button 👋");
+    function showGreeting() {
+      const hour = new Date().getHours();
+      let message;
+
+      if (hour < 12) {
+        message = "Good Morning! ☀️";
+      } else if (hour < 18) {
+        message = "Good Afternoon! 🌤️";
+      } else {
+        message = "Good Evening! 🌙";
+      }
+
+      alert(message);
     }
   </script>
 </body>
